@@ -349,20 +349,34 @@ SELECT * FROM loc01;
   해결방법: trigger
   */
   ---------------------------------------------또오류남-------------------
-CREATE OR REPLACE TRIGGER dept_tri
-AFTER UPDATE ON dept01 FOR EACH ROW
-BEGIN 
-UPDATE emp08
-SET dpetno=50
-WHERE dpetno=20;
-END;
-
-UPDATE dept01
-SET dpetno=50
-WHERE dpetno=20;
-
-  SELECT * FROM dept01;
-  SELECT * FROM emp08;
---------------------------------------------해결못함-------------------------
-  
+--CREATE OR REPLACE TRIGGER dept_tri
+--AFTER UPDATE ON dept01 FOR EACH ROW
+--BEGIN 
+--UPDATE emp08
+--SET dpetno=50
+--WHERE dpetno=20;
+--END;
+--
+--UPDATE dept01
+--SET dpetno=50
+--WHERE dpetno=20;
+--
+--  SELECT * FROM dept01;
+--  SELECT * FROM emp08;
+------------------------------------------밑에거랑비교~-----------------------
+   CREATE  OR REPLACE TRIGGER dept_tri
+     AFTER UPDATE ON dept01 FOR EACH ROW
+   BEGIN
+       UPDATE emp08
+       SET dpetno=50
+       WHERE dpetno=20;
+   END;
+   /
+   
+   UPDATE dept01
+   SET dpetno=50
+   WHERE dpetno=20;
+   
+   SELECT  * FROM dept01;
+   SELECT  * FROM emp08;
   
